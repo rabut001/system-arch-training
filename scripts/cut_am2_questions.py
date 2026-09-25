@@ -4,7 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import os
+import re
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import pymupdf
@@ -17,6 +21,8 @@ LEFT_SLACK = 28
 PAD_X = 40
 PAD_Y = 36
 QUESTION_COUNT = 25
+RENDER_SCALE = 200 / 72
+HEADER_RE = re.compile(r"[問間]\d+")
 
 
 def row_left(row: bytes) -> int | None:
@@ -146,7 +152,8 @@ def content_bounds(
         clusters.append([start, width])
     merged: list[list[int]] = []
     for cluster in clusters:
-        if not merged or cluster[0] - merged[-1][1] > 40:
+        # 選択肢が左右に離れて並ぶ行も、一つの問として残す。
+        if not merged or cluster[0] - merged[-1][1] > 180:
             merged.append(cluster)
         else:
             merged[-1][1] = cluster[1]
@@ -159,15 +166,65 @@ def load_page_image(doc: pymupdf.Document, page_index: int) -> pymupdf.Pixmap:
     return pymupdf.Pixmap(doc, xref)
 
 
+def header_ys(page: pymupdf.Page) -> list[float]:
+    """問番号の行の上端を、ページ上のポイント座標で返す。"""
+    clip = pymupdf.Rect(20, 30, 150, page.rect.height - 30)
+    pix = page.get_pixmap(
+        matrix=pymupdf.Matrix(3, 3),
+        colorspace=pymupdf.csGRAY,
+        alpha=False,
+        clip=clip,
+    )
+    fd, path = tempfile.mkstemp(suffix=".png")
+    os.close(fd)
+    pix.save(path)
+    try:
+        proc = subprocess.run(
+            ["tesseract", path, "stdout", "-l", "jpn", "--psm", "6", "tsv"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    finally:
+        os.remove(path)
+    lines: dict[tuple[str, str, str], list[list[str]]] = {}
+    for row in proc.stdout.splitlines()[1:]:
+        cols = row.split("\t")
+        if len(cols) < 12 or cols[0] != "5" or not cols[11].strip():
+            continue
+        lines.setdefault((cols[2], cols[3], cols[4]), []).append(cols)
+    ys: list[float] = []
+    for words in lines.values():
+        words.sort(key=lambda word: int(word[6]))
+        text = "".join(word[11].strip() for word in words).replace(" ", "")
+        text = text.lstrip("・･.．-* ")
+        if HEADER_RE.match(text):
+            top = min(int(word[7]) for word in words)
+            ys.append(30 + top / 3)
+    ys.sort()
+    merged: list[float] = []
+    for y in ys:
+        if not merged or y - merged[-1] > 8:
+            merged.append(y)
+    return merged
+
+
 def crop_questions(pdf_path: Path, out_dir: Path) -> list[Path]:
     doc = pymupdf.open(pdf_path)
-    # 表紙と裏表紙は問ではない。メモ用紙は文字がほとんどない。
+    # 表紙・表記ルール・メモ用紙には問番号がない。ページは正立で描く。
     pages: list[tuple[int, pymupdf.Pixmap, list[int], int]] = []
-    for page_index in range(1, doc.page_count - 1):
-        pix = load_page_image(doc, page_index)
-        tops = question_tops(pix.samples, pix.width, pix.height)
-        if tops:
-            pages.append((page_index, pix, tops, footer_top(pix.samples, pix.width, pix.height)))
+    for page_index in range(doc.page_count):
+        page = doc[page_index]
+        ys = header_ys(page)
+        if not ys:
+            continue
+        pix = page.get_pixmap(
+            matrix=pymupdf.Matrix(RENDER_SCALE, RENDER_SCALE),
+            colorspace=pymupdf.csGRAY,
+            alpha=False,
+        )
+        tops = [max(0, round(y * RENDER_SCALE)) for y in ys]
+        pages.append((page_index, pix, tops, footer_top(pix.samples, pix.width, pix.height)))
     total = sum(len(tops) for _, _, tops, _ in pages)
     if total != QUESTION_COUNT:
         doc.close()
