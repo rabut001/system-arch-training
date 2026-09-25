@@ -11,17 +11,16 @@ description: >-
 
 ## 手順
 
-1. このセッションのユーザー発言から、ほかの会話に無さそうな短い一節を選ぶ。
-2. リポジトリ直下で実行する。
+1. このセッションのトランスクリプトを渡して、リポジトリ直下で実行する。
 
 ```bash
-python3 .cursor/skills/export-chat/scripts/export_chat.py --match "選んだ一節"
+python3 .cursor/skills/export-chat/scripts/export_chat.py --transcript "<トランスクリプトの jsonl>"
 ```
 
-トランスクリプトのパスが分かっているときは `--transcript` を使う。`--match` と同時には指定しない。
+トランスクリプトは、現在のエージェントストアの ID と同じ名前である。ストアが `.../<id>/files` なら、ワークスペースの `agent-transcripts/<id>/<id>.jsonl` を渡す。発言の一節では探さない。
 
-3. 標準出力に出たパスを、書き出したファイルとしてユーザーに伝える。
-4. 頼まれない限りコミットしない。
+2. 標準出力に出たパスを、書き出したファイルとしてユーザーに伝える。
+3. 頼まれない限りコミットしない。
 
 `chat-exports/` はログであり、アプリの資産ではない。実装や仕様の根拠にしない。仕様は `AGENTS.md` を参照する。
 

@@ -108,29 +108,9 @@ def render(entries: list[dict], started: datetime) -> str:
     return "".join(parts)
 
 
-def discover(match: str) -> Path:
-    root = Path.home() / ".cursor" / "projects"
-    if not root.is_dir():
-        raise SystemExit(f"トランスクリプトの探索先がありません: {root}")
-    found = []
-    for path in root.glob("*/agent-transcripts/*/*.jsonl"):
-        try:
-            text = path.read_text(encoding="utf-8")
-        except OSError:
-            continue
-        if match in text:
-            found.append(path)
-    if not found:
-        raise SystemExit(f"「{match}」を含むトランスクリプトが見つかりません。")
-    found.sort(key=lambda path: path.stat().st_mtime, reverse=True)
-    return found[0]
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    source = parser.add_mutually_exclusive_group(required=True)
-    source.add_argument("--transcript", type=Path, help="対象セッションの .jsonl")
-    source.add_argument("--match", help="このセッションの発言に含まれる一意な文字列")
+    parser.add_argument("--transcript", type=Path, required=True, help="このセッションの .jsonl")
     parser.add_argument(
         "--repo-root",
         type=Path,
@@ -138,7 +118,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    transcript = args.transcript if args.transcript else discover(args.match)
+    transcript = args.transcript
     if not transcript.is_file():
         raise SystemExit(f"トランスクリプトがありません: {transcript}")
 
