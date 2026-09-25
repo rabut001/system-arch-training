@@ -15,7 +15,7 @@ IPA 公開のシステムアーキテクト試験・午前Ⅱを、1問ずつ解
 
 ## 技術
 
-- 開発は `.devcontainer/` の開発コンテナで行う。中身は Node.js 22 と Python 3。Python 側には PyMuPDF を入れる。
+- 開発は `.devcontainer/` の開発コンテナで行う。中身は Node.js 22 と Python 3.12。Python 側には PyMuPDF を入れる。PDF は拡張 `mathematic.vscode-pdf` で開く。
 - 画面は `web/` の Vite + React + TypeScript。UI ライブラリは使わない。
 - 画面は切り出し済みの画像と JSON を読む。ブラウザでは PDF を描画しない。
 - 公開は GitHub Actions から GitHub Pages。公開パスは `/system-arch-training/`。サイトに載せるのはアプリ、問題画像、問題 JSON、出典表記。午後問題と解答 PDF は Pages の成果物に含めない。
@@ -46,7 +46,7 @@ IPA 公開のシステムアーキテクト試験・午前Ⅱを、1問ずつ解
 
 ## 進め方
 
-現在地は段階0の前。文書とフォルダだけが揃っている。
+現在地は段階0の完了後。開発コンテナの定義は `.devcontainer/` にある。次は段階1。
 
 0. 開発コンテナを用意し、以降の作業はその中で行う。
 1. 令和7年度春期（`exams/2025-r07-haru`）の25問を、画像・正解・解説まで JSON にする。切れ目と解説をこの1回で確認する。
