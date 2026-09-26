@@ -54,7 +54,9 @@ function serveExamData(): Plugin {
       server.middlewares.use(serve);
     },
     closeBundle() {
-      fs.cpSync(dataRoot, path.resolve("dist/data"), { recursive: true });
+      const dist = path.resolve("dist");
+      fs.cpSync(dataRoot, path.resolve(dist, "data"), { recursive: true });
+      fs.copyFileSync(path.resolve(dist, "index.html"), path.resolve(dist, "404.html"));
     },
   };
 }

@@ -14,9 +14,12 @@ import {
   type AnswerRecord,
   type Progress,
 } from "./progress.ts";
+import type { LinkClick } from "./route.ts";
 
 type PracticeProps = {
   exam: Exam;
+  listHref: string;
+  onLinkClick: LinkClick;
 };
 
 function questionByNo(exam: Exam, no: number): Question {
@@ -37,7 +40,7 @@ function statusLabel(answer: AnswerRecord | undefined, question: Question): stri
   return answer.choice === question.answer ? "正解" : "誤答";
 }
 
-export function Practice({ exam }: PracticeProps) {
+export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
   const [progress, setProgress] = useState<Progress>(() => loadProgress(exam.id));
   const [confirmingClear, setConfirmingClear] = useState(false);
   const imagePane = useRef<HTMLDivElement>(null);
@@ -131,6 +134,13 @@ export function Practice({ exam }: PracticeProps) {
   return (
     <div className="practice">
       <header className="top">
+        <a
+          className="back"
+          href={listHref}
+          onClick={(event) => onLinkClick(event, listHref)}
+        >
+          一覧へ戻る
+        </a>
         <div className="heading">
           <h1>{exam.title}</h1>
           <p className="score">

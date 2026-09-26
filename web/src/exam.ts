@@ -1,5 +1,30 @@
 export const CHOICES = ["ア", "イ", "ウ", "エ"] as const;
 
+export const EXAM_IDS = [
+  "2025-r07-haru",
+  "2024-r06-haru",
+  "2023-r05-haru",
+  "2022-r04-haru",
+  "2021-r03-haru",
+  "2019-r01-aki",
+  "2018-h30-aki",
+  "2017-h29-aki",
+  "2016-h28-aki",
+  "2015-h27-aki",
+  "2014-h26-aki",
+  "2013-h25-aki",
+  "2012-h24-aki",
+  "2011-h23-aki",
+  "2010-h22-aki",
+  "2009-h21-aki",
+] as const;
+
+export type ExamId = (typeof EXAM_IDS)[number];
+
+export function isExamId(value: string): value is ExamId {
+  return (EXAM_IDS as readonly string[]).includes(value);
+}
+
 export type Choice = (typeof CHOICES)[number];
 
 export type Question = {
@@ -52,7 +77,32 @@ export function parseExam(value: unknown): Exam {
   };
 }
 
-export async function loadExam(examId: string): Promise<Exam> {
+const examCache = new Map<string, Promise<Exam>>();
+const resolvedExams = new Map<string, Exam>();
+
+export function peekExam(examId: string): Exam | undefined {
+  return resolvedExams.get(examId);
+}
+
+export function loadExam(examId: string): Promise<Exam> {
+  const cached = examCache.get(examId);
+  if (cached) {
+    return cached;
+  }
+  const pending = fetchExam(examId)
+    .then((exam) => {
+      resolvedExams.set(examId, exam);
+      return exam;
+    })
+    .catch((error: unknown) => {
+      examCache.delete(examId);
+      throw error;
+    });
+  examCache.set(examId, pending);
+  return pending;
+}
+
+async function fetchExam(examId: string): Promise<Exam> {
   const response = await fetch(`${import.meta.env.BASE_URL}data/${examId}.json`);
   if (!response.ok) {
     throw new Error("問題データを読み込めませんでした。");

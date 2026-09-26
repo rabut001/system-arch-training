@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { loadExam, type Exam } from "./exam.ts";
+import { ExamList, MissingExam } from "./ExamList.tsx";
+import { loadExam, peekExam, type Exam } from "./exam.ts";
 import { Practice } from "./Practice.tsx";
+import { listPath, useRoute, type LinkClick } from "./route.ts";
 
-const examId = "2025-r07-haru";
+type ExamScreenProps = {
+  examId: string;
+  onLinkClick: LinkClick;
+};
 
-export function App() {
-  const [exam, setExam] = useState<Exam | null>(null);
+function ExamScreen({ examId, onLinkClick }: ExamScreenProps) {
+  const [exam, setExam] = useState<Exam | null>(() => peekExam(examId) ?? null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,7 +29,7 @@ export function App() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [examId]);
 
   if (error) {
     return <p className="status">{error}</p>;
@@ -32,5 +37,17 @@ export function App() {
   if (!exam) {
     return <p className="status">問題を読み込んでいます。</p>;
   }
-  return <Practice exam={exam} />;
+  return <Practice exam={exam} listHref={listPath()} onLinkClick={onLinkClick} />;
+}
+
+export function App() {
+  const { route, onLinkClick } = useRoute();
+
+  if (route.name === "list") {
+    return <ExamList onLinkClick={onLinkClick} />;
+  }
+  if (route.name === "missing") {
+    return <MissingExam onLinkClick={onLinkClick} />;
+  }
+  return <ExamScreen key={route.id} examId={route.id} onLinkClick={onLinkClick} />;
 }
