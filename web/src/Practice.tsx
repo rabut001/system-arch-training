@@ -40,11 +40,17 @@ function statusLabel(answer: AnswerRecord | undefined, question: Question): stri
   return answer.choice === question.answer ? "正解" : "誤答";
 }
 
+type DialogKind = "clear" | "grade";
+
 export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
   const [progress, setProgress] = useState<Progress>(() => loadProgress(exam.id));
-  const [confirmingClear, setConfirmingClear] = useState(false);
+  const [dialogKind, setDialogKind] = useState<DialogKind | null>(null);
   const imagePane = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
+  const shownKind = useRef<DialogKind>("clear");
+  if (dialogKind) {
+    shownKind.current = dialogKind;
+  }
 
   const questionNos = new Set(exam.questions.map((question) => question.no));
   const currentNo = questionNos.has(progress.currentNo)
@@ -67,14 +73,18 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
     if (!element) {
       return;
     }
-    if (confirmingClear && !element.open) {
+    if (dialogKind && !element.open) {
       element.showModal();
     }
-    if (!confirmingClear && element.open) {
+    if (!dialogKind && element.open) {
       element.close();
     }
-  }, [confirmingClear]);
+  }, [dialogKind]);
 
+  const draftCount = exam.questions.filter((item) => {
+    const record = progress.answers[item.no];
+    return record !== undefined && !record.confirmed;
+  }).length;
   const confirmedQuestions = exam.questions.filter(
     (item) => progress.answers[item.no]?.confirmed,
   );
@@ -122,10 +132,31 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
     setProgress((current) => ({ ...current, currentNo: no }));
   }
 
+  function dismissDialog() {
+    dialog.current?.close();
+    setDialogKind(null);
+  }
+
+  function gradeDrafts() {
+    dialog.current?.close();
+    setProgress((current) => {
+      const answers = { ...current.answers };
+      for (const item of exam.questions) {
+        const record = answers[item.no];
+        if (record && !record.confirmed) {
+          answers[item.no] = { choice: record.choice, confirmed: true };
+        }
+      }
+      return { ...current, answers };
+    });
+    setDialogKind(null);
+  }
+
   function clearSession() {
+    dialog.current?.close();
     clearProgress(exam.id);
     setProgress(emptyProgress());
-    setConfirmingClear(false);
+    setDialogKind(null);
   }
 
   const firstNo = exam.questions[0].no;
@@ -248,8 +279,17 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
 
         <button
           type="button"
+          className="grade"
+          disabled={draftCount === 0}
+          onClick={() => setDialogKind("grade")}
+        >
+          一括採点
+        </button>
+
+        <button
+          type="button"
           className="clear"
-          onClick={() => setConfirmingClear(true)}
+          onClick={() => setDialogKind("clear")}
         >
           回答をすべてクリア
         </button>
@@ -264,21 +304,40 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
 
       <dialog
         ref={dialog}
-        onClose={() => setConfirmingClear(false)}
-        aria-labelledby="clear-title"
+        onClose={() => setDialogKind(null)}
+        aria-labelledby="dialog-title"
       >
-        <h2 id="clear-title">この回の解答を消します</h2>
-        <p>
-          {exam.title}の確認済みの解答と、まだ確認していない選択を消して、問1に戻ります。
-        </p>
-        <div className="dialog-actions">
-          <button type="button" onClick={() => setConfirmingClear(false)}>
-            中止
-          </button>
-          <button type="button" className="danger" onClick={clearSession}>
-            消してやり直す
-          </button>
-        </div>
+        {shownKind.current === "grade" ? (
+          <>
+            <h2 id="dialog-title">選択済みの問をまとめて採点します</h2>
+            <p>
+              選択済みで未確認の{draftCount}問を確認済みにします。採点後は、その問の選択を変えられません。未選択の問は採点しません。
+            </p>
+            <div className="dialog-actions">
+              <button type="button" onClick={dismissDialog}>
+                中止
+              </button>
+              <button type="button" onClick={gradeDrafts}>
+                採点する
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2 id="dialog-title">この回の解答を消します</h2>
+            <p>
+              {exam.title}の確認済みの解答と、まだ確認していない選択を消して、問1に戻ります。
+            </p>
+            <div className="dialog-actions">
+              <button type="button" onClick={dismissDialog}>
+                中止
+              </button>
+              <button type="button" className="danger" onClick={clearSession}>
+                消してやり直す
+              </button>
+            </div>
+          </>
+        )}
       </dialog>
     </div>
   );
