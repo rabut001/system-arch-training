@@ -1,0 +1,60 @@
+name: GitHub Pages へ公開する
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "web/**"
+      - "data/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得する
+        uses: actions/checkout@v4
+
+      - name: Node.js を用意する
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: 依存関係を入れる
+        working-directory: web
+        run: npm ci
+
+      - name: ビルドする
+        working-directory: web
+        run: npm run build
+
+      - name: Pages を用意する
+        uses: actions/configure-pages@v5
+
+      - name: 成果物をアップロードする
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages へ載せる
+        id: deployment
+        uses: actions/deploy-pages@v5
