@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "python3 .cursor/hooks/confirm-git-push.py",
+        "matcher": "\\bgit\\b",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ]
+  }
+}
