@@ -20,7 +20,7 @@ IPA が公開しているシステムアーキテクト試験の午前Ⅱを、1
 
 `chat-exports/` は会話の書き出しです。サイトの素材でも、仕様の参照先でもありません。
 
-回ごとの JSON は `data/<id>.json` にあり、`id`、`title`、`questions` を持ちます。問は `no`（1〜25）、`answer`（ア、イ、ウ、エ）、`image`（問題画像への相対パス）、`explanation`（学習用の解説）です。令和7年度春期、令和6年度春期、令和5年度春期、令和4年度春期は、これに加えて `stem`（設問文）、`choices`（ア〜エの本文）、`visuals`（図・表・画像の有無）を持ちます。これらは画面に出さず、問題は画像のままです。残りの回へは、解説の見直しのときに同じ項目を足します。画像は `data/<id>/q01.png` から `q25.png` です。解説の書き方と進捗は [specs/0001-explanation-improvement/README.md](specs/0001-explanation-improvement/README.md) にあります。
+回ごとの JSON は `data/<id>.json` にあり、`id`、`title`、`questions` を持ちます。問は `no`（1〜25）、`answer`（ア、イ、ウ、エ）、`image`（問題画像への相対パス）、`explanation`（学習用の解説）です。令和7年度春期、令和6年度春期、令和5年度春期、令和4年度春期、令和3年度春期は、これに加えて `stem`（設問文）、`choices`（ア〜エの本文）、`visuals`（図・表・画像の有無）を持ちます。これらは画面に出さず、問題は画像のままです。残りの回へは、解説の見直しのときに同じ項目を足します。画像は `data/<id>/q01.png` から `q25.png` です。解説の書き方と進捗は [specs/0001-explanation-improvement/README.md](specs/0001-explanation-improvement/README.md) にあります。
 
 ## 開発
 
