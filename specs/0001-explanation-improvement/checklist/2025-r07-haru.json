@@ -5,602 +5,1206 @@
     {
       "no": 1,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "関連をE-R図の要素とした。"
+        }
+      ]
     },
     {
       "no": 1,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "関連をE-R図の要素とした。"
+        }
+      ]
     },
     {
       "no": 1,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "実体をE-R図の要素とした。"
+        }
+      ]
     },
     {
       "no": 1,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "DFDの要素だけの組みであり、四つすべてを含まなくてよい点を書いた。"
+        }
+      ]
     },
     {
       "no": 2,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "単一責任原則を当てた。肢の説明は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 2,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "インタフェース分離原則を当てた。表記はインタフェースに揃えた。"
+        }
+      ]
     },
     {
       "no": 2,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "依存性逆転原則を当てた。抽象への依存は肢にないので書いていない。"
+        }
+      ]
     },
     {
       "no": 2,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "開放・閉鎖原則を、拡張に開き修正に閉じる原則として書いた。肢の文は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 3,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "BINDをDNSとした。"
+        }
+      ]
     },
     {
       "no": 3,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "シングルサインオンとKeycloakを当てた。問題文のログイン手順は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 3,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "Logstashをログ収集とした。"
+        }
+      ]
     },
     {
       "no": 3,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "OpenSSLを暗号化ライブラリとした。"
+        }
+      ]
     },
     {
       "no": 4,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "2相コミットを分散トランザクションの確定とした。"
+        }
+      ]
     },
     {
       "no": 4,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "KVSを格納方式とした。"
+        }
+      ]
     },
     {
       "no": 4,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "前段をMap、後段をReduceとした。問題文の処理内容は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 4,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "マルチスレッドを並行実行とした。キーごとの集約ではない。"
+        }
+      ]
     },
     {
       "no": 5,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "アをObserverの説明とした。定義の繰り返しはしていない。"
+        }
+      ]
     },
     {
       "no": 5,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "Decoratorを当てた。肢の説明は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 5,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "Singletonを当てた。"
+        }
+      ]
     },
     {
       "no": 5,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "Iteratorを当てた。"
+        }
+      ]
     },
     {
       "no": 6,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "静的解析を、実行しない点が問題文と違う点として書いた。"
+        }
+      ]
     },
     {
       "no": 6,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "テストカバレッジ分析を実行後の網羅測定とした。"
+        }
+      ]
     },
     {
       "no": 6,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "テストベッドをテスト用環境とした。"
+        }
+      ]
     },
     {
       "no": 6,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "メトリクス計測は規模の測定で、誤りの有無は見ないとした。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点5。メトリクス計測を規模の測定に限っている。複雑さなども測る定量的な測定で、誤りの有無は見ない、と書く。"
+        },
+        {
+          "role": "見直し",
+          "text": "規模に限らず、規模や複雑さなどの定量的な測定とした。誤りの有無は見ない点は残した。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点5を満たす。規模や複雑さなどの定量的な測定とし、誤りの有無は見ない点も残っている。"
+        }
+      ]
     },
     {
       "no": 7,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "探索的テストは欠陥を埋め込まない、とだけ書いた。"
+        },
+        {
+          "role": "見直し",
+          "text": "実行しながらテストの内容を決める、と意味を書いた。欠陥を埋め込まない点は残した。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点2を満たす。実行しながらテストの内容を決める、と意味を書いている。"
+        }
+      ]
     },
     {
       "no": 7,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ドメイン分析テストは欠陥を埋め込まない、とだけ書いた。"
+        },
+        {
+          "role": "見直し",
+          "text": "入力を同値分割と境界で分ける、と意味を書いた。欠陥を埋め込まない点は残した。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点2を満たす。入力を同値分割と境界で分ける、と意味を書いている。"
+        }
+      ]
     },
     {
       "no": 7,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ミューテーションテストと、E = N / m が検出力の割合である点を書いた。手順の再掲はしていない。"
+        }
+      ]
     },
     {
       "no": 7,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ユースケーステストは欠陥を埋め込まない、とだけ書いた。"
+        },
+        {
+          "role": "見直し",
+          "text": "利用者の一連の操作を試す、と意味を書いた。欠陥を埋め込まない点は残した。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点2を満たす。利用者の一連の操作を試す、と意味を書いている。"
+        }
+      ]
     },
     {
       "no": 8,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 8,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "図のノード5、エッジ7から 4 と計算した。"
+        }
+      ]
     },
     {
       "no": 8,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 8,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 9,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "値呼出しを、コピーなので呼出し元が変わらない方式として書いた。数値例は足していない。"
+        }
+      ]
     },
     {
       "no": 9,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "結果呼出しを、結果の書き戻しとした。"
+        }
+      ]
     },
     {
       "no": 9,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "参照呼出しを、同じ変数を指す方式とした。"
+        }
+      ]
     },
     {
       "no": 9,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "名前呼出しは不変を保証しない、と書いた。断定はしていない。"
+        }
+      ]
     },
     {
       "no": 10,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "aをレベル1（Reaction）とした。活動文は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 10,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "bをレベル3（Behavior）とした。"
+        }
+      ]
     },
     {
       "no": 10,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "cをレベル4（Results）とした。"
+        }
+      ]
     },
     {
       "no": 10,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "dをレベル2（Learning）とし、知識や技能の獲得を見ると書いた。"
+        }
+      ]
     },
     {
       "no": 11,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "反復型開発の利点とした。"
+        }
+      ]
     },
     {
       "no": 11,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "リスク駆動型開発の利点とした。"
+        }
+      ]
     },
     {
       "no": 11,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "アーキテクチャ中心の開発の利点とした。ユースケース単位ではない。"
+        }
+      ]
     },
     {
       "no": 11,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "エをユースケース駆動の利点とした。肢の文は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 12,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "非構造化の、自由な質問と聞きそびれとした。"
+        }
+      ]
     },
     {
       "no": 12,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "半構造化に近いとした。質問票の有無は肢にないので断定していない。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点3、観点5。掘り下げと技量依存は、半構造化と非構造化の両方に当たる。質問項目を一部残す点が肢にないので、半構造化に寄せると混同する。両方に当たる旨と、構造化との違いを書く。"
+        },
+        {
+          "role": "見直し",
+          "text": "半構造化と非構造化の両方に当たると書いた。質問を固定する構造化ではない、と違いを書いた。半構造化とは断定していない。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点3、観点5を満たす。両方に当たる旨と、質問を固定する構造化ではない点を書いている。"
+        }
+      ]
     },
     {
       "no": 12,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "非構造化の、状況に応じた変更と複数人でのずれとした。アとは特徴が違う。"
+        }
+      ]
     },
     {
       "no": 12,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "構造化を、質問の固定、比較のしやすさ、洞察の引き出しにくさとして書いた。"
+        }
+      ]
     },
     {
       "no": 13,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "アクティビティ図を処理の手順とした。"
+        }
+      ]
     },
     {
       "no": 13,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "オブジェクト図を、ある時点のつながりとした。"
+        }
+      ]
     },
     {
       "no": 13,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "クラス図を、クラスの構造と関係とした。"
+        }
+      ]
     },
     {
       "no": 13,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ユースケース図を当てた。問題文の図の説明は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 14,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "指名と指揮命令を両立する一般的な契約形態は見当たらない、とした。紹介予定派遣は該当するが一般的ではない、と留めた。"
+        }
+      ]
     },
     {
       "no": 14,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ラボ契約を、一定以上の発注と要員確保の交換として書いた。"
+        }
+      ]
     },
     {
       "no": 14,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "レベニューシェアとだけ書いた。問題文から想像できる分配の説明は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 14,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "実稼働だけの精算は、一定以上の発注が前提のラボ契約と一致しない、とした。繰越しなど問題にない事項は書いていない。"
+        }
+      ]
     },
     {
       "no": 15,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "アを協調フィルタリングとした。肢の文は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 15,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "カテゴリの売れ筋順位とした。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点1、観点3。カテゴリの売れ筋順位は肢の言い換えである。この肢全体に対応する一般的な名称は見当たらないので、その旨と、顧客の類似を見ない点を書く。"
+        },
+        {
+          "role": "見直し",
+          "text": "一般的な名称は見当たらない旨と、顧客の類似を見ない点を書いた。売れ筋の言い換えは削った。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点1、観点3を満たす。一般的な名称が無い旨と、顧客の類似を見ない点を書いている。"
+        }
+      ]
     },
     {
       "no": 15,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "デモグラフィックな属性分けとした。"
+        }
+      ]
     },
     {
       "no": 15,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "アソシエーション分析とした。顧客の類似は見ない。"
+        }
+      ]
     },
     {
       "no": 16,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "Smurf攻撃を当てた。"
+        }
+      ]
     },
     {
       "no": 16,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "決まった攻撃名には当てはまらない、と書いた。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点3。決まった攻撃名が無い、とだけ書いている。hostsの書き換えで偽サイトへ誘導する点はファーミングに似るが、大量のコンテンツをダウンロードさせる点はファーミングの目的と違う。類似と相違を書く。"
+        },
+        {
+          "role": "見直し",
+          "text": "決まった攻撃名が無い点は残した。偽サイトへの誘導はファーミングに似るが、大量ダウンロードは目的と違う、と書いた。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点3を満たす。攻撃名が無い旨に加え、ファーミングとの類似と相違を書いている。"
+        }
+      ]
     },
     {
       "no": 16,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "オープンリゾルバ悪用と、小さい問合せで大きい応答を集める点を書いた。"
+        }
+      ]
     },
     {
       "no": 16,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "オープンリレーを当てた。"
+        }
+      ]
     },
     {
       "no": 17,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        },
+        {
+          "role": "見直し",
+          "text": "PC = 0.2704 と計算した。計算結果以外は書いていない。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点4を満たす。PC = 0.2704 が書いてあり、計算結果以外の解説はない。"
+        }
+      ]
     },
     {
       "no": 17,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        },
+        {
+          "role": "見直し",
+          "text": "PC = 0.24 と計算した。計算結果以外は書いていない。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点4を満たす。PC = 0.24 が書いてあり、計算結果以外の解説はない。"
+        }
+      ]
     },
     {
       "no": 17,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "PA = 0.1、PB = 0.1、PC = 0.19 と計算した。"
+        },
+        {
+          "role": "見直し",
+          "text": "四つの PC を比べ、最も低い 0.19 がウだと書いた。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点4を満たす。四つの結果を比べ、最も低い 0.19 がウである。"
+        }
+      ]
     },
     {
       "no": 17,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        },
+        {
+          "role": "見直し",
+          "text": "PC = 0.415 と計算した。計算結果以外は書いていない。"
+        },
+        {
+          "role": "レビュー",
+          "text": "観点4を満たす。PC = 0.415 が書いてあり、計算結果以外の解説はない。"
+        }
+      ]
     },
     {
       "no": 18,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "L2TPをVPNのトンネルとした。遠隔ログインではない。"
+        }
+      ]
     },
     {
       "no": 18,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "LDAPをディレクトリへのアクセスとした。"
+        }
+      ]
     },
     {
       "no": 18,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "RADIUSを接続時の認証とした。遠隔ログインではない。"
+        }
+      ]
     },
     {
       "no": 18,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "SSHを、暗号化と認証を伴う遠隔ログインとした。"
+        }
+      ]
     },
     {
       "no": 19,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "SPFを当てた。ポート587の目的ではない。"
+        }
+      ]
     },
     {
       "no": 19,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "DKIMを当てた。公開鍵で署名を検証する方式である。"
+        }
+      ]
     },
     {
       "no": 19,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "POP before SMTPを当てた。"
+        }
+      ]
     },
     {
       "no": 19,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "エをサブミッションポートの目的とした。SMTP-AUTHの手順は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 20,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "フルアソシアティブを当てた。"
+        }
+      ]
     },
     {
       "no": 20,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ライトスルーを当てた。"
+        }
+      ]
     },
     {
       "no": 20,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ウをセットアソシアティブ方式とした。肢の対応付けの文は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 20,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "仮想記憶のアドレス変換を当てた。"
+        }
+      ]
     },
     {
       "no": 21,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "コンテナ仮想化を当てた。"
+        }
+      ]
     },
     {
       "no": 21,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ライブマイグレーションを当てた。"
+        }
+      ]
     },
     {
       "no": 21,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "コレオグラフィを当てた。"
+        }
+      ]
     },
     {
       "no": 21,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "エをオーケストレーションとした。肢の手順は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 22,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 22,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 22,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "h = 0.6 の半分 0.3 から 1.6秒と計算した。"
+        }
+      ]
     },
     {
       "no": 22,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "計算問題のため、誤答の解説は書いていない。"
+        }
+      ]
     },
     {
       "no": 23,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "シーケンスコードを連番とした。"
+        }
+      ]
     },
     {
       "no": 23,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "デシマルコードを10進の桁分類とした。"
+        }
+      ]
     },
     {
       "no": 23,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ウをニモニックコードとした。連想の説明は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 23,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ブロックコードを番号帯ごとのグループとした。値から対象は連想できない。"
+        }
+      ]
     },
     {
       "no": 24,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "両方とも増える点で、隔離の効果と逆だと書いた。"
+        }
+      ]
     },
     {
       "no": 24,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "不整合な読込みが増える左の列だけが逆だと書いた。右の列は隔離の効果と一致する。"
+        }
+      ]
     },
     {
       "no": 24,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "処理件数が増える右の列だけが、ロック待ちと合わないと書いた。"
+        }
+      ]
     },
     {
       "no": 24,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "不整合な読込みの減少と、ロック待ちによる処理件数の減少を書いた。"
+        }
+      ]
     },
     {
       "no": 25,
       "choice": "ア",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ゲートウェイをプロトコル変換とした。"
+        }
+      ]
     },
     {
       "no": 25,
       "choice": "イ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ブリッジを、レイヤ2スイッチと同じ働きとした。問題文の三機能は繰り返していない。"
+        }
+      ]
     },
     {
       "no": 25,
       "choice": "ウ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "リピータを信号の再生中継とした。"
+        }
+      ]
     },
     {
       "no": 25,
       "choice": "エ",
-      "status": "未着手",
-      "comments": []
+      "status": "確認済み",
+      "comments": [
+        {
+          "role": "見直し",
+          "text": "ルータをネットワーク層の中継とした。"
+        }
+      ]
     }
   ]
 }
