@@ -1,0 +1,606 @@
+{
+  "examId": "2025-r07-haru",
+  "title": "令和7年度春期",
+  "items": [
+    {
+      "no": 1,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 1,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 1,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 1,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 2,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 2,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 2,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 2,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 3,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 3,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 3,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 3,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 4,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 4,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 4,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 4,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 5,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 5,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 5,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 5,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 6,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 6,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 6,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 6,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 7,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 7,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 7,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 7,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 8,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 8,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 8,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 8,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 9,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 9,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 9,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 9,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 10,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 10,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 10,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 10,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 11,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 11,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 11,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 11,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 12,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 12,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 12,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 12,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 13,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 13,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 13,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 13,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 14,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 14,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 14,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 14,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 15,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 15,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 15,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 15,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 16,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 16,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 16,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 16,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 17,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 17,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 17,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 17,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 18,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 18,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 18,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 18,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 19,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 19,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 19,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 19,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 20,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 20,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 20,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 20,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 21,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 21,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 21,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 21,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 22,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 22,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 22,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 22,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 23,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 23,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 23,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 23,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 24,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 24,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 24,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 24,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 25,
+      "choice": "ア",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 25,
+      "choice": "イ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 25,
+      "choice": "ウ",
+      "status": "未着手",
+      "comments": []
+    },
+    {
+      "no": 25,
+      "choice": "エ",
+      "status": "未着手",
+      "comments": []
+    }
+  ]
+}
