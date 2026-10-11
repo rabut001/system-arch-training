@@ -7,8 +7,6 @@ import {
   type Question,
 } from "./exam.ts";
 import {
-  clearProgress,
-  emptyProgress,
   loadProgress,
   saveProgress,
   type AnswerRecord,
@@ -40,19 +38,32 @@ function statusLabel(answer: AnswerRecord | undefined, question: Question): stri
   return answer.choice === question.answer ? "正解" : "誤答";
 }
 
+function numberLabel(
+  no: number,
+  answer: AnswerRecord | undefined,
+  question: Question,
+  checked: boolean,
+): string {
+  const mark = checked ? "チェック済み、" : "";
+  return `問${no}、${mark}${statusLabel(answer, question)}`;
+}
+
 type DialogKind = "clear" | "grade";
 
 export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
-  const [progress, setProgress] = useState<Progress>(() => loadProgress(exam.id));
+  const questionNos = new Set(exam.questions.map((question) => question.no));
+  const [progress, setProgress] = useState<Progress>(() =>
+    loadProgress(exam.id, questionNos),
+  );
   const [dialogKind, setDialogKind] = useState<DialogKind | null>(null);
-  const imagePane = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
+  const imageScroll = useRef<HTMLDivElement>(null);
+  const lower = useRef<HTMLDivElement>(null);
   const shownKind = useRef<DialogKind>("clear");
   if (dialogKind) {
     shownKind.current = dialogKind;
   }
 
-  const questionNos = new Set(exam.questions.map((question) => question.no));
   const currentNo = questionNos.has(progress.currentNo)
     ? progress.currentNo
     : exam.questions[0].no;
@@ -65,7 +76,8 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
   }, [exam.id, progress]);
 
   useEffect(() => {
-    imagePane.current?.scrollTo(0, 0);
+    imageScroll.current?.scrollTo(0, 0);
+    lower.current?.scrollTo(0, 0);
   }, [question.no]);
 
   useEffect(() => {
@@ -152,10 +164,22 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
     setDialogKind(null);
   }
 
+  function toggleCheck() {
+    setProgress((current) => {
+      const checked = current.checked.includes(question.no)
+        ? current.checked.filter((no) => no !== question.no)
+        : [...current.checked, question.no];
+      return { ...current, checked };
+    });
+  }
+
   function clearSession() {
     dialog.current?.close();
-    clearProgress(exam.id);
-    setProgress(emptyProgress());
+    setProgress((current) => ({
+      currentNo: 1,
+      answers: {},
+      checked: current.checked,
+    }));
     setDialogKind(null);
   }
 
@@ -198,9 +222,21 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
                 type="button"
                 className={classes.join(" ")}
                 aria-current={item.no === question.no ? "true" : undefined}
-                aria-label={`問${item.no}、${statusLabel(itemAnswer, item)}`}
+                aria-label={numberLabel(
+                  item.no,
+                  itemAnswer,
+                  item,
+                  progress.checked.includes(item.no),
+                )}
                 onClick={() => moveTo(item.no)}
               >
+                {progress.checked.includes(item.no) && (
+                  <span className="flag" aria-hidden="true">
+                    <svg viewBox="0 0 16 16">
+                      <path d="M2.6 8.2 6.4 12.2 13.4 3.8" />
+                    </svg>
+                  </span>
+                )}
                 <span>{item.no}</span>
                 {itemAnswer?.confirmed && (
                   <span className="mark" aria-hidden="true">
@@ -218,11 +254,23 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
         </nav>
       </header>
 
-      <div className="image-pane" ref={imagePane}>
-        <img src={imageUrl(question.image)} alt={`問${question.no}`} />
+      <div className="image-pane">
+        <div className="check-row">
+          <label className="check">
+            <input
+              type="checkbox"
+              checked={progress.checked.includes(question.no)}
+              aria-label={`問${question.no}をチェック`}
+              onChange={toggleCheck}
+            />
+          </label>
+        </div>
+        <div className="image-scroll" ref={imageScroll}>
+          <img src={imageUrl(question.image)} alt={`問${question.no}`} />
+        </div>
       </div>
 
-      <div className="lower">
+      <div className="lower" ref={lower}>
         <div className="choices" role="group" aria-label="選択肢">
           {CHOICES.map((choice) => (
             <button
@@ -326,7 +374,7 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
           <>
             <h2 id="dialog-title">この回の解答を消します</h2>
             <p>
-              {exam.title}の確認済みの解答と、まだ確認していない選択を消して、問1に戻ります。
+              {exam.title}の確認済みの解答と、まだ確認していない選択を消して、問1に戻ります。チェックはそのまま残します。
             </p>
             <div className="dialog-actions">
               <button type="button" onClick={dismissDialog}>

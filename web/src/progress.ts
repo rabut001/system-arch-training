@@ -8,6 +8,7 @@ export type AnswerRecord = {
 export type Progress = {
   currentNo: number;
   answers: Record<number, AnswerRecord>;
+  checked: number[];
 };
 
 export function storageKey(examId: string): string {
@@ -15,7 +16,24 @@ export function storageKey(examId: string): string {
 }
 
 export function emptyProgress(): Progress {
-  return { currentNo: 1, answers: {} };
+  return { currentNo: 1, answers: {}, checked: [] };
+}
+
+function sortedChecked(values: Iterable<number>): number[] {
+  return [...new Set(values)].sort((left, right) => left - right);
+}
+
+function readChecked(value: unknown, questionNos: ReadonlySet<number>): number[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  const seen: number[] = [];
+  for (const item of value) {
+    if (typeof item === "number" && Number.isInteger(item) && questionNos.has(item)) {
+      seen.push(item);
+    }
+  }
+  return sortedChecked(seen);
 }
 
 function isAnswer(value: unknown): value is AnswerRecord {
@@ -30,7 +48,10 @@ function isAnswer(value: unknown): value is AnswerRecord {
   );
 }
 
-export function loadProgress(examId: string): Progress {
+export function loadProgress(
+  examId: string,
+  questionNos: ReadonlySet<number>,
+): Progress {
   const raw = localStorage.getItem(storageKey(examId));
   if (raw === null) {
     return emptyProgress();
@@ -48,14 +69,22 @@ export function loadProgress(examId: string): Progress {
         }
       }
     }
-    return { currentNo, answers };
+    return {
+      currentNo,
+      answers,
+      checked: readChecked(parsed.checked, questionNos),
+    };
   } catch {
     return emptyProgress();
   }
 }
 
 export function saveProgress(examId: string, progress: Progress): void {
-  localStorage.setItem(storageKey(examId), JSON.stringify(progress));
+  const stored: Progress = {
+    ...progress,
+    checked: sortedChecked(progress.checked),
+  };
+  localStorage.setItem(storageKey(examId), JSON.stringify(stored));
 }
 
 export function clearProgress(examId: string): void {
