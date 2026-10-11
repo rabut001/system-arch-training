@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   CHOICES,
   imageUrl,
@@ -50,6 +50,38 @@ function numberLabel(
 
 type DialogKind = "clear" | "grade";
 
+const previousLayout = `
+.number {
+  display: block !important;
+  position: relative !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 1rem 0.25rem 0.7rem !important;
+  font-size: inherit !important;
+  line-height: 1.5 !important;
+  gap: 0 !important;
+}
+.badges {
+  position: absolute !important;
+  height: auto !important;
+}
+.lower {
+  max-height: 45vh !important;
+  padding: 0.75rem 1rem 1rem !important;
+  flex: 0 1 auto !important;
+  height: auto !important;
+}
+.confirm,
+.pager button,
+.grade,
+.clear,
+.result,
+footer {
+  margin-top: 0.75rem !important;
+}
+`;
+
 export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
   const questionNos = new Set(exam.questions.map((question) => question.no));
   const [progress, setProgress] = useState<Progress>(() =>
@@ -59,6 +91,7 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
   const dialog = useRef<HTMLDialogElement>(null);
   const imageScroll = useRef<HTMLDivElement>(null);
   const lower = useRef<HTMLDivElement>(null);
+  const numbers = useRef<HTMLElement>(null);
   const shownKind = useRef<DialogKind>("clear");
   if (dialogKind) {
     shownKind.current = dialogKind;
@@ -79,6 +112,58 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
     imageScroll.current?.scrollTo(0, 0);
     lower.current?.scrollTo(0, 0);
   }, [question.no]);
+
+  useLayoutEffect(() => {
+    const scroll = imageScroll.current;
+    const lowerEl = lower.current;
+    const numbersEl = numbers.current;
+    if (!scroll || !lowerEl || !numbersEl) {
+      return;
+    }
+
+    let fitting = false;
+    const fit = () => {
+      if (fitting) {
+        return;
+      }
+      fitting = true;
+      try {
+        lowerEl.style.height = "";
+        lowerEl.style.flexShrink = "";
+        const root = Number.parseFloat(
+          getComputedStyle(document.documentElement).fontSize,
+        );
+        const previous = document.createElement("style");
+        previous.textContent = previousLayout;
+        document.head.append(previous);
+        const before = scroll.clientHeight;
+        const numbersBefore = numbersEl.getBoundingClientRect().height;
+        previous.remove();
+        const expected =
+          before +
+          (numbersBefore - numbersEl.getBoundingClientRect().height) +
+          3.1 * root;
+        const error = expected - scroll.clientHeight;
+        if (Math.abs(error) < 1) {
+          return;
+        }
+        const next = lowerEl.getBoundingClientRect().height - error;
+        lowerEl.style.flexShrink = "0";
+        lowerEl.style.height = `${Math.max(next, 0)}px`;
+      } finally {
+        fitting = false;
+      }
+    };
+
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(document.documentElement);
+    return () => {
+      observer.disconnect();
+      lowerEl.style.height = "";
+      lowerEl.style.flexShrink = "";
+    };
+  }, [question.no, confirmed]);
 
   useEffect(() => {
     const element = dialog.current;
@@ -202,7 +287,7 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
             正解 <span>{score}</span>
           </p>
         </div>
-        <nav className="numbers" aria-label="問題番号">
+        <nav className="numbers" aria-label="問題番号" ref={numbers}>
           {exam.questions.map((item) => {
             const itemAnswer = progress.answers[item.no];
             const classes = ["number"];
@@ -230,24 +315,21 @@ export function Practice({ exam, listHref, onLinkClick }: PracticeProps) {
                 )}
                 onClick={() => moveTo(item.no)}
               >
-                {progress.checked.includes(item.no) && (
-                  <span className="flag" aria-hidden="true">
-                    <svg viewBox="0 0 16 16">
-                      <path d="M2.6 8.2 6.4 12.2 13.4 3.8" />
-                    </svg>
-                  </span>
-                )}
                 <span>{item.no}</span>
-                {itemAnswer?.confirmed && (
-                  <span className="mark" aria-hidden="true">
-                    {itemAnswer.choice === item.answer ? "○" : "×"}
-                  </span>
-                )}
-                {itemAnswer && !itemAnswer.confirmed && (
-                  <span className="mark" aria-hidden="true">
-                    ●
-                  </span>
-                )}
+                <span className="badges" aria-hidden="true">
+                  {itemAnswer?.confirmed && (
+                    <span className="mark">
+                      {itemAnswer.choice === item.answer ? "○" : "×"}
+                    </span>
+                  )}
+                  {progress.checked.includes(item.no) && (
+                    <span className="flag">
+                      <svg viewBox="0 0 16 16">
+                        <path d="M2.6 8.2 6.4 12.2 13.4 3.8" />
+                      </svg>
+                    </span>
+                  )}
+                </span>
               </button>
             );
           })}
